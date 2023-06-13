@@ -1,0 +1,19 @@
+Određivanje zemljišnog pokrivača (land cover), na osnovu satelitskih snimaka
+
+Ulazni podaci:
+
+in_slo.npy - ulazna matrica za trening, satelistski snimak u 13 boja (kanala)
+slo.png - izlazna slika za trening
+legend.png - legenda boja na izlaznoj slici
+rgb_slo.png - satelitski snimak u rgb formatu (informativno - ne koristi se)
+in_ns.npy - ulazna matrica za testiranje, satelistski snimak u 13 boja (kanala)
+
+Zadaci:
+
+1. Na osnovu slike za trening slo.png i legende kodirati klase boja u matricu. Matricu sačuvati u obliku out_slo.npy
+2. Kreirati model neuronske mreže po želji. Obučiti ga na osnovu ulazne in_slo.npy i izlazne out_slo.npy matrice. Sačuvati najbolji model.
+3. Uporediti trening izlaze out_slo.npy sa izlazima iz mreže. Napraviti matricu konfuzije, izračunati F1 vrednosti za svaku klasu. 
+4. Na osnovu ulaza in_slo.npy i izlaza iz obučene mreže, kreirati i sačuvati sliku slo_train.png 
+5. Na osnovu ulaza in_ns.npy i izlaza iz obučene mreže, kreirati i sačuvati sliku ns_test.png
+6. Prezentovati rezultate (objasniti model, način obučavanja, prikazati rezultujuće slike, preciznost, itd.)
+  
