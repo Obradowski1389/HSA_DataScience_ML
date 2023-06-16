@@ -10,7 +10,7 @@ out_img_name = "out_ns.png"
 
 
 def main():
-    # img_to_npy(img_in, npy_out)
+    img_to_npy(img_in, npy_out)
 
     # first arg == 1 - train model; first arg != 1 - predict image
     # epochs 
