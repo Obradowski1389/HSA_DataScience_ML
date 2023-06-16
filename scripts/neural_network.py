@@ -10,25 +10,6 @@ import os
 from .color_classes import color_classes_rev
 
 
-cur = os.path.dirname(os.path.abspath(__file__))
-parent = os.path.normpath(os.path.join(cur, '..'))
-dir_in_path = os.path.join(parent, "npy", "input")
-dir_out_path = os.path.join(parent, "npy", "out")
-in_path = os.path.join(dir_in_path, "in_slo.npy")
-out_path = os.path.join(dir_out_path, "out_slo.npy")
-
-# Load the input and output matrices
-in_slo = np.load(in_path)
-out_slo = np.load(out_path)
-
-MODELS_DIR = os.path.normpath(os.path.join(cur, '..', 'Model'))
-MODEL_TRAIN_PATH = os.path.join(MODELS_DIR, 'model_learn.hdf5')
-MODEL_VALID_PATH = os.path.join(MODELS_DIR, 'model_valid.hdf5')
-MODEL_TRAIN_MONITOR = os.path.join(MODELS_DIR, 'accuracy')
-MODEL_VALID_MONITOR = os.path.join(MODELS_DIR, 'val_accuracy')
-MODEL_MODE = os.path.join(MODELS_DIR, 'max')
-HISTORY_PATH = os.path.join(MODELS_DIR, 'history.csv')
-
 global model
 global train_in_slo, test_in_slo, train_out_slo, test_out_slo
 
@@ -36,6 +17,25 @@ global train_in_slo, test_in_slo, train_out_slo, test_out_slo
 def build_nn(save, epoch, batch, predict_path, out_name):
     global model
     global train_in_slo, test_in_slo, train_out_slo, test_out_slo
+
+    cur = os.path.dirname(os.path.abspath(__file__))
+    parent = os.path.normpath(os.path.join(cur, '..'))
+    dir_in_path = os.path.join(parent, "npy", "input")
+    dir_out_path = os.path.join(parent, "npy", "out")
+    in_path = os.path.join(dir_in_path, "in_slo.npy")
+    out_path = os.path.join(dir_out_path, "out_slo.npy")
+
+    # Load the input and output matrices
+    in_slo = np.load(in_path)
+    out_slo = np.load(out_path)
+
+    MODELS_DIR = os.path.normpath(os.path.join(cur, '..', 'Model'))
+    MODEL_TRAIN_PATH = os.path.join(MODELS_DIR, 'model_learn.hdf5')
+    MODEL_VALID_PATH = os.path.join(MODELS_DIR, 'model_valid.hdf5')
+    MODEL_TRAIN_MONITOR = os.path.join(MODELS_DIR, 'accuracy')
+    MODEL_VALID_MONITOR = os.path.join(MODELS_DIR, 'val_accuracy')
+    MODEL_MODE = os.path.join(MODELS_DIR, 'max')
+    HISTORY_PATH = os.path.join(MODELS_DIR, 'history.csv')
 
     if save != 1:
         model = load_model(os.path.join(MODELS_DIR, 'model.h5'))
